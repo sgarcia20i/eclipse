@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first page with JS</title>
+
+    <style>
+        button, input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .classp {
+            width: 50px;
+            margin: 10px;
+            padding: 20px;
+            border: 1px yellowgreen solid;
+            border-radius: 5px;
+
+        }
+
+        .spanClass {
+            display: block;
+            border: 1px blue solid;
+        }
+    </style>
+
+    <script>
+        /*How to define a function
+        Function nameoffunction() {
+            if (condition) {
+            } else {
+
+            }
+        }
+
+    -Example
+    function showalert() {
+        window.alert("Welcome to JavaScript");
+    }
+
+        -This function with parameters
+        function nameoffunction(param1, param2) {
+
+        }
+            */
+
+            function showalert() {
+        window.alert("Welcome to JavaScript");
+    }
+
+        /* -The name of parameter must not be keyword: 
+        function, var, let, const, if, else, for, while */
+    function showalert2(text1) {
+        window.alert(text1);
+    }
+    
+    </script>
+</head>
+<body>
+    <h1>JS</h1>
+    <h2>How to show a content in the page using JS</h2>
+    <ul>
+        <li>document.element.innertHTML()</li>
+        <li>document.element.innertTEXT()</li>
+        <li>window.alert()</li>
+        <li>console.log()</li>
+        <li>document.write()</li_>
+    </ul>
+
+    <p class="myP" id="p0">Paragraph 0</p>
+    <p class="myP" id="p1">Paragraph 1</p>
+    <p class="myP" id="p2">Paragraph 2</p>
+    <p class="myP" id="p3">Paragraph 3</p>
+    <p class="myP" id="p4">Paragraph 4</p>
+
+    <script> /* All we have here is JavaScript*/
+        document.write("<p>Hello World JS</p>");
+        console.log(5+7);
+        console.log("This is a part a text");
+        /*
+        for (let i = 0; i < 1000000; i++) {
+        window.alert("Hey man, where is my gift");
+        }
+       */
+       window.alert("Hey man, where is my gift");
+       /*How to acces an html element of a page using JS
+            - document.getElementById('NameofID');
+            - document.getElementsByClassName('NameofClass');
+                - The result is a list / array
+                - If we want to acces to the fisrt element:
+                document.getElementsByClassName('NameofClass') [0]
+            - document.getElementsByTagName('NameofTag');
+                - The result is a list / array
+            */
+        document.write(document.getElementById('p0').innerText);
+        console.log(document.getElementsByClassName('myP')[1].innerText);
+        console.log(document.getElementsByTagName('p')[2].innerText);
+
+        document.getElementById('p3').innerHTML = "<b>Paragraph 3 </b>";
+
+        /* Events: onclick, ondblclick, onmouseover, onmouseout, etc*/
+
+        
+    </script>
+
+    <button onclick="document.getElementById('p0').style.color = 'green';">
+        Click me and i change the color of p0 in green
+    </button>
+
+    <button ondblclick="document.getElementById('p0').style.backgroundColor = 'black';">
+        Double click me and i change the background color color of p1 to black
+        
+        <!--En CSS las propiedades que vayan con guion como background-color hay que quitar el guión 
+    y se pone la primera letra en mayúscula de la segunda palabra, ejemplo: backgroundColor -->
+    
+    </button>
+
+    <button onmouseover="document.getElementById('p2').style.fontSize = '40px';"
+    onmouseout="document.getElementById('p2').style.fontSize = 'Initial';">
+        
+        Put your mouse over me and i put the size of p2 in 40px
+    </button>
+    
+    <button onmousedown="document.getElementById('p3').style.display = 'none';">
+        Put down the mouse over me i will desapear the p3
+    </button>
+    
+    <!-- Si es el mismo elemento como en este caso utilizamos this -->
+
+    <button onclick="document.getElementsByTagName('button')[4].style.fontSize = '40px';
+    document.getElementsByTagName('button')[4].style.backgroundColor = 'blue';">
+        Click me and i will change myself to bigger size 40px and background-color blue
+    </button>
+
+    <button onclick="this.style.fontSize = '40px';
+    this.style.backgroundColor = 'blue';">
+        Click me and i will change myself to bigger size 40px and background-color blue
+    </button>
+
+    <button onclick="showalert()">
+        Gime me a click i show you the alert
+    </button>
+
+    <button onclick="showalert2('Hola Mundo')">
+        Gime me a click i show you the alert
+    </button>
+
+    <button ondblclick="calculateAdd(10, 100)" id="idCal">
+        Double click me and i calculate the addition operation between 10 and 100
+    </button>
+
+    <script>
+        /* This function show the result of adding two numbers. It will show in the same button */
+        function calculateAdd(x, y) {
+            document.getElementById("idCal").innerText = x + y;
+        }
+    </script>
+
+    <script>
+        /* Definition of variables:
+        - var (2015)
+        - let -> Define a string , boolean, integer, float, ...
+            let x = 'String';
+            let y = true;
+            let z = 1;
+            let t = 1.0;
+        - const -> Define a constant variable
+            const pi = 3.1415;
+            let perimeter = 2*pi*radius;
+            let area = pi*radius**2
+
+        Operations arithmetic
+
+        * : multiplication
+        / : divition
+        + : addition
+        - : subtraction
+        ** : exponent -> 2**3 = 2*2*2 = 8
+        % : modul -> 5 % 3 = 2
+
+
+
+        **  let x = 'String';
+            let y = true;
+            let z = 1;
+            let t = 1.0;
+            
+            **
+
+        Other operations & Concatation
+        z + y -> 2 (The result type is integer)
+        z + t -> 2.0 (The result type is float)
+        y + t -> 2.0 (The result type is float)
+        x + y ->           (The result type is string)
+        x + z ->           (The result type is string)
+        x + t ->           (The result type is string)
+            */
+
+        function tellOddeven() {
+            /* We are defining a auxiliar variable */
+            let valInput = document.getElementsByTagName('input')[0].value;
+
+                /* First we see if the input value is empty */
+            if ( valInput == '') {
+                window.alert("Enter a number buddy");
+            }
+            /* Then we see if the number is odd */
+            else if (valInput % 2 != 0) {
+            window.alert("The number is odd");
+        } else {
+                window.alert("The number is even");
+            }
+        }
+
+    </script>
+    <input type="number">
+    <!-- To get content of an input we'll use 'value' not innerText nor innerHTML -->
+    <button onclick="tellOddeven()"> Enter a a number and i tell if it's odd or even</button>
+
+
+        <script>
+            function calculate() {
+            let x = 'String';
+            let y = true;
+            let z = 1;
+            let t = 1.0;
+            console.log(x+y);
+            console.log(x+z);
+            console.log(x+t);
+
+            }
+        </script>
+
+
+    <button onclick="calculate()"> Click me and  I show you the 3 results  </button>
+
+
+    <button onclick="calculate2('String', true, 1, 1.0)"> Click me and  I show you the 3 results  </button>
+
+    <script>
+        /*if (condition)
+            else if (condition)
+            else if (condition)
+            else
+        */
+
+       
+        /* Tell a age entered if is an adult, teeneger or minor*/
+        function tellAdult() {
+            let valueAge = document.getElementsByTagName('input')[1].value;
+            if (valueAge == '') {
+                window.alert("Enter your age!");
+            } else if (valueAge  < 12) {
+                window.alert("You are a minor!");
+            } else if (11 > valueAge && valueAge  < 18) {
+                window.alert("You are a teenager!");
+            } else {
+                window.alert("You are an adult!"); 
+            }
+        }
+ 
+    </script>
+
+    <input type="number" onchange="tellAdult()">
+    <button onclick="tellAdult()">
+        Click me and I show you if the
+         age entered is an adult or a teenageer
+         (17&lt;value&lt;11) or a minor (&lt;=10)
+    </button>
+
+    <!-- We are going to create a mini-calculator with two different inputs
+    if the operation is clicked then we shoe the answer -->
+    <input type="number" id="operando1" value="1">
+    <input type="number" id="operando2" value="2">
+    <button onclick="computeCalc(this.innerText)"
+            onmouseover="computeCalcEval(this.innerText)">*</button>
+    <button onclick="computeCalc(this.innerText)"
+            onmouseover="computeCalcEval(this.innerText)" ">/</button>
+    <button onclick="computeCalc(this.innerText)"
+            onmouseover="computeCalcEval(this.innerText)">-</button>
+    <button onclick="computeCalc(this.innerText)"
+            onmouseover="computeCalcEval(this.innerText)">+</button>
+    <button onclick="computeCalc(this.innerText)">All operations</button>
+
+    <script>
+       /* Pseudocodi
+       computeCalc (operation)
+       si operation es *
+            muestra resultado val1 * val2
+        si no, si operation es +
+            muestra resultado val1 + val2
+        si no, si operation es /
+            muestra resultado val1 / val2 
+        si no
+            muestra resultado val1 - val2
+        */
+
+        function computeCalc(operationParameter) {
+            let val1 = parseFloat(document.getElementById('operando1').value);
+            let val2 = parseFloat(document.getElementById('operando2').value);
+          
+            if (operationParameter == '*') {
+                window.alert(val1 * val2);
+                console.log(val1 * val2);
+            } else if (operationParameter == '/') {
+                window.alert(val1 / val2);
+                console.log(val1 / val2);
+            } else if (operationParameter == '+') {
+                window.alert(val1 + val2); /*Problem -> First solution parseFloat()!!!*/
+                console.log(val1 + val2);  /*        -> Second solution eval()*/
+            } else if (operationParameter == '-') {
+                window.alert(val1 - val2);
+                console.log(val1 - val2);
+            } else {
+                let a1 = val1 + val2;
+                let m1 = val1 * val2;
+                let d1 = val1 / val2;
+                let s1 = val1 - val2;
+                window.alert(
+                    "Addition: "+a1+
+                    "\nMultiplication: "+m1+
+                    "\nDivision: "+d1+
+                    "\nSubstaction: "+s1
+                );
+            }
+        }
+
+            function computeCalcEval(operation)  {
+                let val1 = document.getElementById('val1').value;
+                let val2 = document.getElementById('val1').value;
+                let preresult = val1 + operation + val2;
+                window.alert(eval(preresult))
+
+                /*To improve -> 
+                1. Show an alert if the input is empty
+                2. Implement the other button "All operations"*/
+            }
+    </script>
+
+    <script>
+        for(let i=0; i < 10; i++){
+            document.write("<p id ='idp"+i+"' class='classp'>Hola món "+i+"</p>");
+        }
+    </script>
+
+    <script>
+        let iter =0;
+        while (iter < 1000) {
+            document.write("<span id='spanId' '+iter+' class='spanClass'>Span "+iter+" </span>");
+            iter = iter + 1;    // iter++ <-> iter + 1
+        }
+    </script>
+
+    <script>
+        
+        document.write("<table>")
+             {
+
+            }
+        document.write("</table>")
+    </script>
+</body>
+</html>
